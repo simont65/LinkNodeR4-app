@@ -22,6 +22,9 @@ void config_gpio();
 void setup()
 {
   Serial.begin(115200); 
+  /* Add delay to allow for serial port to stabilize and send a new-line for display clarity */
+  delay(1000);
+  Serial.println("");   
   /*Read the factory_key and deviceID first*/
   bool result = SPIFFS.begin();
   Serial.println("SPIFFS opened: " + result);
