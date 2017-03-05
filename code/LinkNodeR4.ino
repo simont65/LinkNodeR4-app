@@ -32,6 +32,9 @@ void setup()
   File f = SPIFFS.open("/data.txt", "r");
   if (!f) {
     Serial.println("File doesn't exist yet. Creating it");
+  /* Reset WiFi configuration to start from scratch */
+   WiFiManager wifiManager;
+   wifiManager.resetSettings();
   /* Configure the factory_key and deviceID via serial
    *  and save it to data.txt
    * example data:
